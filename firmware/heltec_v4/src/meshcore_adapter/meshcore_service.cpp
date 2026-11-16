@@ -36,6 +36,8 @@ void MeshCoreService::setMesh485Handler(Mesh485JsonFn, void*) {}
 
 size_t MeshCoreService::writeMesh485Line(const char*, size_t) { return 0; }
 
+const char* MeshCoreService::nodeName() const { return ""; }
+
 bool MeshCoreService::send(const uint8_t*, size_t) { return false; }
 
 bool MeshCoreService::poll(uint8_t*, size_t* len, size_t) {
