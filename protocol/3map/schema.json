@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "3MAP envelope",
+  "type": "object",
+  "required": ["v", "type", "id", "device"],
+  "properties": {
+    "v": { "const": 1 },
+    "type": { "enum": ["access.command", "access.response", "access.event"] },
+    "id": { "type": "string", "minLength": 1, "maxLength": 16 },
+    "device": { "type": "string" },
+    "cmd": { "type": "string" },
+    "operator": { "type": "string" },
+    "ts": { "type": "integer" },
+    "nonce": { "type": "string" },
+    "payload": { "type": "object" },
+    "result": { "type": "string" },
+    "error": { "type": ["string", "null"] }
+  }
+}

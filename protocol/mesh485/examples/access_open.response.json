@@ -1,0 +1,17 @@
+{
+  "v": 1,
+  "type": "m485.response",
+  "id": "A17002",
+  "node": "EXT-001",
+  "op": "ACCESS_OPEN",
+  "result": "OK",
+  "error": null,
+  "ts": 1787912347,
+  "payload": {
+    "mesh_ok": true,
+    "device_ok": true,
+    "error": null,
+    "device": "TS-001",
+    "state": "OPEN"
+  }
+}

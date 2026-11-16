@@ -1,0 +1,13 @@
+{
+  "v": 1,
+  "type": "m485.response",
+  "id": "DV0004",
+  "node": "EXT-001",
+  "op": "EVENT_LIST",
+  "result": "OK",
+  "error": null,
+  "ts": 1787912347,
+  "payload": {
+    "events": []
+  }
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>MESH 485 — локальный прошивальщик</title>
+  <script type="module" src="https://unpkg.com/esp-web-tools@10.1.1/dist/web/install-button.js?module"></script>
+  <style>
+    body { font-family: sans-serif; max-width: 42rem; margin: 2rem auto; line-height: 1.45; }
+    h1 { font-size: 1.4rem; }
+    section { border: 1px solid #ccc; padding: 1rem; margin: 1rem 0; }
+    p { margin: 0.4rem 0; }
+  </style>
+</head>
+<body>
+  <h1>MESH 485 — прошивка Heltec</h1>
+  <p>Chrome или Edge. Закройте монитор порта, иначе плата не откроется. Антенна должна быть на плате до включения передатчика.</p>
+
+  <section>
+    <h2>Heltec WiFi LoRa 32 V4</h2>
+    <p>USB-C, узел EXT-001. Считыватель RDM6300 и сирена уже в этом образе. Роль в меню платы сохраняется.</p>
+    <esp-web-install-button manifest="manifest-v4.json"></esp-web-install-button>
+  </section>
+
+  <section>
+    <h2>Heltec WiFi LoRa 32 V3 — приёмник</h2>
+    <p>CP2102, узел EXT-002, роль приёмник, канал 1. Сирена на GPIO 48 при тревоге.</p>
+    <esp-web-install-button manifest="manifest-v3-receiver.json"></esp-web-install-button>
+  </section>
+
+  <section>
+    <h2>Heltec WiFi LoRa 32 V3 — источник</h2>
+    <p>Узел EXT-003, роль источник. Чужой сигнал эту плату не включает.</p>
+    <esp-web-install-button manifest="manifest-v3-source.json"></esp-web-install-button>
+  </section>
+
+  <section>
+    <h2>Heltec T114</h2>
+    <p>Этот образ на T114 не ставится. T114 — это nRF52840, а прошивка собрана под ESP32-S3. Кнопка прошивки для T114 здесь намеренно отсутствует: Web Serial и esptool пишут только ESP32. Для T114 нужна отдельная сборка под nRF52, её в этом репозитории нет.</p>
+  </section>
+</body>
+</html>

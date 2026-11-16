@@ -1,0 +1,18 @@
+{
+  "v": 1,
+  "type": "m485.response",
+  "id": "CX0001",
+  "node": "EXT-001",
+  "op": "COMMAND_EXECUTE",
+  "result": "ERR",
+  "error": "NO_PERMISSION",
+  "ts": 1787912345,
+  "payload": {
+    "device_id": "PP-001",
+    "capability": "DISABLE_FIRE_ALARM",
+    "point_id": "",
+    "mesh_ok": true,
+    "device_ok": false,
+    "error": "NO_PERMISSION"
+  }
+}

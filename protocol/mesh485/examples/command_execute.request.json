@@ -1,0 +1,16 @@
+{
+  "v": 1,
+  "type": "m485.request",
+  "id": "CX0008",
+  "node": "EXT-001",
+  "op": "COMMAND_EXECUTE",
+  "operator": "operator",
+  "ts": 1787912345,
+  "nonce": "c1f0",
+  "payload": {
+    "device_id": "PP-001",
+    "capability": "CONTROL_RELAY",
+    "point_id": "R1",
+    "action": "ON"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "v": 1,
+  "type": "m485.response",
+  "id": "BR0P01",
+  "node": "EXT-001",
+  "op": "BRIDGE_POLL",
+  "result": "OK",
+  "error": null,
+  "ts": 1787912347,
+  "payload": {
+    "session": true,
+    "level": "READ_ONLY",
+    "frames": [
+      {
+        "ts": 1787912345,
+        "frame": "QUJD"
+      }
+    ],
+    "dropped": 0
+  }
+}

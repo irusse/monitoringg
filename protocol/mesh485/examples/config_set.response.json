@@ -1,0 +1,18 @@
+{
+  "v": 1,
+  "type": "m485.response",
+  "id": "CFG010",
+  "node": "EXT-001",
+  "op": "CONFIG_SET",
+  "result": "OK",
+  "error": null,
+  "ts": 1787912347,
+  "payload": {
+    "baud": 9600,
+    "parity": "N",
+    "stop": 1,
+    "protocol": "BOLID_SIGNAL20",
+    "protocols": ["RAW", "BOLID_C2000PP", "BOLID_SIGNAL10", "BOLID_SIGNAL20"],
+    "mode": "MONITOR"
+  }
+}

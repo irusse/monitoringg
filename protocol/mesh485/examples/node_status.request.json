@@ -1,0 +1,11 @@
+{
+  "v": 1,
+  "type": "m485.request",
+  "id": "8A12F2",
+  "node": "EXT-001",
+  "op": "NODE_STATUS",
+  "operator": "admin",
+  "ts": 1787912345,
+  "nonce": "c1f0",
+  "payload": {}
+}

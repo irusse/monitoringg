@@ -1,0 +1,15 @@
+{
+  "v": 1,
+  "type": "m485.response",
+  "id": "ACC001",
+  "node": "EXT-001",
+  "op": "ACCESS_OPEN",
+  "result": "ERR",
+  "error": "NO_PERMISSION",
+  "ts": 1787912347,
+  "payload": {
+    "mesh_ok": true,
+    "device_ok": false,
+    "error": "NO_PERMISSION"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "v": 1,
+  "type": "m485.response",
+  "id": "DV0010",
+  "node": "EXT-001",
+  "op": "DEVICE_INFO",
+  "result": "OK",
+  "error": null,
+  "ts": 1787912347,
+  "payload": {
+    "id": "PP-001",
+    "vendor": "bolid",
+    "model": "C2000PP",
+    "protocol": "BOLID_C2000PP",
+    "address": 1,
+    "online": false,
+    "capabilities": ["READ_STATUS"]
+  }
+}

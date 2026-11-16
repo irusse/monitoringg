@@ -1,0 +1,16 @@
+{
+  "v": 1,
+  "type": "m485.request",
+  "id": "A18003",
+  "node": "EXT-001",
+  "op": "ACCESS_ADD_CARD",
+  "operator": "admin",
+  "ts": 1787912345,
+  "nonce": "c1f0",
+  "payload": {
+    "uid": "CAFEBABE",
+    "employee_id": "E18",
+    "name": "Ivan",
+    "enabled": true
+  }
+}

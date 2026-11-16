@@ -1,0 +1,25 @@
+{
+  "v": 1,
+  "type": "m485.response",
+  "id": "8A12F2",
+  "node": "EXT-001",
+  "op": "NODE_STATUS",
+  "result": "OK",
+  "error": null,
+  "ts": 1787912347,
+  "payload": {
+    "radio": "ok",
+    "repeater": true,
+    "uptime_s": 12,
+    "profile": "access+rs485",
+    "rs485": {
+      "ok": true,
+      "baud": 9600,
+      "protocol": "RAW",
+      "rx": 0,
+      "tx": 0
+    },
+    "session": "off",
+    "devices": 6
+  }
+}

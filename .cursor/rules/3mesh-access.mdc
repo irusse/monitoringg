@@ -1,0 +1,20 @@
+---
+description: MESH 485 Extender — RS-485 adapters + Access profile, no MeshCore chat
+alwaysApply: true
+---
+
+Product: MESH 485 Extender. MeshCore is transport. Application layer is MESH 485 (`docs/mesh485-protocol.md`).
+
+Pinout: `docs/pinout.md`. GPIO 19/20 = USB. RS-485 is isolated UART (candidates 38/39 + DE 26) — never USB pins, never LoRa/OLED.
+
+Heltec OLED shows product UI (`docs/oled-ui.md`), not MeshCore chat.
+
+Flutter console (`docs/apps.md`): objects, devices, events, extender-node health, bridge, Access. No chat/contacts/channels.
+
+Bolid: adapters behind Device Abstraction. Prefer С2000-ПП Modbus. Native Orion is MONITOR first. Fire panel must work if mesh dies. Default READ_ONLY.
+
+Access/turnstile is PROFILE_ACCESS on the same image (Wiegand not ESP32-RFID GPIOs).
+
+hass-hubc2000pp = model only (IP to HUB-C2000PP), not UART code. Do not fork MeshCore. CXEM dumps = tests.
+
+Cascade **01–19 complete**. Phases **20–23** and **25–28** done. Next is not assigned: the operator chooses the remaining Orion listen-only job `agent/prompts/24-c2000m-monitor.md` or a stop. Bench 28 is fixture-only (`docs/report-28-ru.md`, `docs/test-pcn-acs.md`). С2000-М: `docs/c2000m.md` (PCN contact ≠ RS-485 A/B; not RS-232 on GPIO; events ≠ MeshCore DM). Pins: `docs/pinout.md`. Leftovers: AUTO, dual UART, Postgres photos, OTA, native Orion CONTROL, MeshCore chat/QR.

@@ -1,0 +1,26 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: access
+      POSTGRES_PASSWORD: access
+      POSTGRES_DB: access
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  api:
+    build: .
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgresql+asyncpg://access:access@db:5432/access
+      PHOTO_DIR: /data/photos
+    ports:
+      - "8000:8000"
+    volumes:
+      - photos:/data/photos
+
+volumes:
+  pgdata:
+  photos:

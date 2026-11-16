@@ -1,0 +1,20 @@
+{
+  "v": 1,
+  "type": "m485.response",
+  "id": "DV0001",
+  "node": "EXT-001",
+  "op": "DEVICE_DISCOVER",
+  "result": "OK",
+  "error": null,
+  "ts": 1787912347,
+  "payload": {
+    "devices": [
+      { "id": "RAW-001", "protocol": "RAW_RS485", "online": true },
+      { "id": "TS-001", "protocol": "ACCESS", "online": true },
+      { "id": "PP-001", "protocol": "BOLID_C2000PP", "online": false },
+      { "id": "S10-001", "protocol": "BOLID_SIGNAL10", "online": false },
+      { "id": "S20-001", "protocol": "BOLID_SIGNAL20", "online": false },
+      { "id": "PCN-001", "protocol": "PCN_CONTACT", "online": true }
+    ]
+  }
+}

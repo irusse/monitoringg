@@ -1,0 +1,14 @@
+{
+  "v": 1,
+  "type": "m485.request",
+  "id": "A18004",
+  "node": "EXT-001",
+  "op": "ACCESS_GET_USERS",
+  "operator": "admin",
+  "ts": 1787912345,
+  "nonce": "c1f0",
+  "payload": {
+    "offset": 0,
+    "limit": 16
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "v": 1,
+  "type": "m485.response",
+  "id": "8A12F2",
+  "node": "EXT-001",
+  "op": "DIAGNOSTICS",
+  "result": "OK",
+  "error": null,
+  "ts": 1787912347,
+  "payload": {
+    "rssi": -80,
+    "snr": 7.5,
+    "rx": 1,
+    "tx": 2,
+    "rs485_rx": 0,
+    "rs485_tx": 0,
+    "last_error": null,
+    "heap": 123456,
+    "last_session": null
+  }
+}

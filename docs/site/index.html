@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MESH 485 Extender</title>
+  <link rel="icon" href="assets/mark.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #05070a;
+      --ink: #f6f3ec;
+      --mute: #a7b3c2;
+      --teal: #3ee0c2;
+      --amber: #e8b86d;
+      --ok: #6ee7a8;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Manrope, system-ui, sans-serif;
+      overflow-x: hidden;
+    }
+    button, a.btn, a.pill { border: 0 !important; outline: 0; box-shadow: none; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; }
+
+    .orb {
+      position: fixed; width: 52vw; height: 52vw; border-radius: 50%;
+      filter: blur(90px); opacity: .28; pointer-events: none; z-index: 0;
+      animation: drift 18s ease-in-out infinite;
+    }
+    .orb.a { background: #124e46; top: -18vw; left: -12vw; }
+    .orb.b { background: #3a2a12; right: -16vw; top: 28vh; animation-delay: -7s; }
+    .noise {
+      position: fixed; inset: 0; pointer-events: none; z-index: 50; opacity: .07;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='.55'/></svg>");
+    }
+
+    nav {
+      position: sticky; top: 0; z-index: 40;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 6vw;
+      background: rgba(5,7,10,.55);
+      backdrop-filter: blur(22px) saturate(1.3);
+    }
+    .brand { display: flex; gap: 10px; align-items: center; font-family: Syne, sans-serif; font-weight: 800; letter-spacing: -.03em; }
+    .brand img { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; }
+    .nav-links { display: flex; gap: 28px; color: var(--mute); font-size: 13px; font-weight: 600; }
+    .nav-links a { position: relative; }
+    .nav-links a::after {
+      content: ""; position: absolute; left: 0; right: 100%; bottom: -6px; height: 2px;
+      background: var(--teal); transition: right .35s cubic-bezier(.2,.8,.2,1);
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a:hover::after { right: 0; }
+
+    .pill, .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 20px; border-radius: 999px; font-weight: 700;
+      cursor: pointer; position: relative; isolation: isolate;
+      transition: transform .25s cubic-bezier(.2,.8,.2,1), background .25s, color .25s, box-shadow .25s;
+    }
+    .pill {
+      background: var(--teal); color: #04231c; font-size: 12px;
+    }
+    .btn {
+      background: var(--teal); color: #04231c; font-size: 14px;
+      box-shadow: 0 18px 40px rgba(62,224,194,.18);
+    }
+    .btn.ghost {
+      background: rgba(255,255,255,.08); color: var(--ink);
+      backdrop-filter: blur(10px);
+      box-shadow: none;
+    }
+    .pill:hover, .btn:hover { transform: translateY(-2px) scale(1.03); }
+    .btn:hover { box-shadow: 0 22px 50px rgba(62,224,194,.32); }
+    .btn.ghost:hover { background: rgba(255,255,255,.16); }
+
+    .hero { position: relative; min-height: 100vh; display: grid; place-items: end start; }
+    .hero .bg {
+      position: absolute; inset: -8% -4% 0; width: 108%; height: 108%;
+      object-fit: cover; will-change: transform;
+    }
+    .hero::after {
+      content: ""; position: absolute; inset: 0;
+      background:
+        radial-gradient(800px 400px at 20% 80%, rgba(62,224,194,.18), transparent 55%),
+        linear-gradient(180deg, rgba(5,7,10,.1), rgba(5,7,10,.88) 88%);
+    }
+    .hero-copy { position: relative; z-index: 2; padding: 0 6vw 12vh; max-width: 980px; }
+    .kicker {
+      color: var(--teal); font-size: 11px; letter-spacing: .28em; text-transform: uppercase;
+      font-weight: 700;
+    }
+    h1 {
+      font-family: Syne, sans-serif;
+      font-size: clamp(52px, 10vw, 108px);
+      line-height: .86; margin: 12px 0 18px; font-weight: 800; letter-spacing: -.05em;
+    }
+    .grad {
+      background: linear-gradient(100deg, #fff 10%, #3ee0c2 45%, #e8b86d 80%, #fff);
+      background-size: 220% 100%;
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      animation: shine 7s linear infinite;
+    }
+    .lede { font-size: 19px; color: #d5dce6; max-width: 620px; line-height: 1.5; }
+    .row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+
+    .marquee {
+      overflow: hidden; white-space: nowrap; padding: 18px 0;
+      mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    }
+    .marquee span {
+      display: inline-block; padding-left: 100%;
+      animation: tick 28s linear infinite;
+      font-family: Syne, sans-serif; font-weight: 700; font-size: 18px; letter-spacing: .12em;
+      color: rgba(246,243,236,.45); text-transform: uppercase;
+    }
+
+    section { position: relative; z-index: 1; padding: 92px 6vw; }
+    h2 { font-family: Syne, sans-serif; font-size: clamp(32px, 5vw, 56px); margin: 0 0 12px; letter-spacing: -.04em; }
+    .sub { color: var(--mute); max-width: 640px; margin-bottom: 40px; line-height: 1.55; }
+
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .stat, .card, .layer, .phase {
+      background: rgba(255,255,255,.04);
+      backdrop-filter: blur(18px);
+      border-radius: 22px;
+    }
+    .stat { padding: 22px; transition: transform .35s, background .35s; }
+    .stat:hover { transform: translateY(-6px); background: rgba(62,224,194,.1); }
+    .stat b { display: block; font-family: Syne, sans-serif; font-size: 30px; }
+    .stat span { color: var(--mute); font-size: 13px; }
+
+    .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .grid2 { display: grid; grid-template-columns: 1.1fr .9fr; gap: 18px; }
+    .card { overflow: hidden; transition: transform .45s cubic-bezier(.2,.8,.2,1); }
+    .card:hover { transform: translateY(-10px) scale(1.01); }
+    .card .pad { padding: 22px; }
+    .card h3 { margin: 0 0 8px; font-family: Syne, sans-serif; }
+    .card p, li { color: var(--mute); line-height: 1.55; }
+    .media { height: 270px; width: 100%; object-fit: cover; transition: transform .7s; }
+    .card:hover .media { transform: scale(1.08); }
+
+    .layers { display: grid; gap: 10px; }
+    .layer {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 16px 18px;
+    }
+    .layer.done { background: rgba(110,231,168,.1); }
+    .layer.now { background: rgba(232,184,109,.14); }
+    .ok { color: var(--ok); }
+    .wait { color: var(--amber); }
+
+    .roadmap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .phase { min-height: 124px; padding: 18px; transition: transform .35s, background .35s; }
+    .phase:hover { transform: translateY(-6px); }
+    .phase small { color: var(--mute); display: block; margin-bottom: 8px; }
+    .phase.done { background: rgba(110,231,168,.12); }
+    .phase.next { background: rgba(232,184,109,.18); }
+
+    .reveal { opacity: 0; transform: translateY(28px); animation: up .8s cubic-bezier(.2,.8,.2,1) forwards; }
+    .d1 { animation-delay: .08s; } .d2 { animation-delay: .16s; } .d3 { animation-delay: .24s; }
+
+    footer { padding: 28px 6vw 60px; color: var(--mute); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+    @keyframes shine { to { background-position: 220% 0; } }
+    @keyframes drift { 50% { transform: translate(8%, 10%) scale(1.12); } }
+    @keyframes tick { to { transform: translateX(-100%); } }
+    @keyframes up { to { opacity: 1; transform: none; } }
+
+    @media (max-width: 960px) {
+      .nav-links { display: none; }
+      .stats, .grid3, .grid2, .roadmap { grid-template-columns: 1fr; }
+      h1 { font-size: 52px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="orb a"></div>
+  <div class="orb b"></div>
+  <div class="noise"></div>
+
+  <nav>
+    <a class="brand" href="#top"><img src="assets/mark.png" alt="" /> MESH 485</a>
+    <div class="nav-links">
+      <a href="#product">Продукт</a>
+      <a href="#stack">Стек</a>
+      <a href="#hw">Железо</a>
+      <a href="#safety">Безопасность</a>
+      <a href="#map">Карта</a>
+    </div>
+    <a class="pill" href="#map">фаза 08</a>
+  </nav>
+
+  <header class="hero" id="top">
+    <img class="bg" id="heroImg" src="assets/hero.png" alt="Heltec V4" />
+    <div class="hero-copy">
+      <div class="kicker">Heltec V4 · MeshCore · isolated RS-485</div>
+      <h1>Беспроводной<br/><span class="grad">порт RS-485.</span></h1>
+      <p class="lede">Универсальный шлюз: LoRa-mesh, изолированная шина и турникет на одном образе. Не мессенджер. Не пожарная панель.</p>
+      <div class="row">
+        <a class="btn" href="#product">Смотреть продукт</a>
+        <a class="btn ghost" href="#hw">Пинout V4</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="marquee" aria-hidden="true">
+    <span>READ_ONLY · MESHCORE · ISOLATED RS-485 · WIEGAND · EXT-001 · NO UART-BYTE TUNNEL · DUAL ACK · PROFILE_ACCESS · BRIDGE SESSION · &nbsp;</span>
+  </div>
+
+  <section>
+    <div class="stats">
+      <div class="stat reveal"><b>7 / 19</b><span>фаз каскада</span></div>
+      <div class="stat reveal d1"><b>READ_ONLY</b><span>мост без TX</span></div>
+      <div class="stat reveal d2"><b>8.3%</b><span>RAM прошивки</span></div>
+      <div class="stat reveal d3"><b>COM23</b><span>USB mux «{»</span></div>
+    </div>
+  </section>
+
+  <section id="product">
+    <div class="kicker">формула</div>
+    <h2>Один узел. Три мира.</h2>
+    <p class="sub">Android и Windows говорят на MESH 485. Heltec несёт MeshCore. На земле — пожарка, охрана, счётчики, ПЛК и СКУД.</p>
+    <div class="grid3">
+      <article class="card reveal">
+        <img class="media" src="assets/architecture.png" alt="Архитектура" />
+        <div class="pad"><h3>Транспорт</h3><p>BLE + USB Companion. OLED — продукт, не чат. GPIO 19/20 навсегда USB.</p></div>
+      </article>
+      <article class="card reveal d1">
+        <img class="media" src="assets/access.png" alt="Access" />
+        <div class="pad"><h3>PROFILE_ACCESS</h3><p>Wiegand 15/16, OPEN 40, лампы, E-STOP. ACL — фаза 17.</p></div>
+      </article>
+      <article class="card reveal d2">
+        <img class="media" src="assets/console.png" alt="Консоль" />
+        <div class="pad"><h3>Консоль</h3><p>Один Flutter на Android и Windows. Без контактов MeshCore.</p></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="stack">
+    <div class="grid2">
+      <div>
+        <div class="kicker">слои</div>
+        <h2>Стек без дыр</h2>
+        <p class="sub">Новый прибор — новая запись в реестре. MeshCore и оболочка не меняются.</p>
+        <div class="layers">
+          <div class="layer done"><span>MeshCore</span><span class="ok mono">01–02</span></div>
+          <div class="layer done"><span>MESH 485 + Bridge</span><span class="ok mono">06–07</span></div>
+          <div class="layer now"><span>Device / Point / Event</span><span class="wait mono">08</span></div>
+          <div class="layer"><span>Bolid · Modbus · Signal</span><span class="mono">09–16</span></div>
+          <div class="layer done"><span>RS-485 HAL · Access</span><span class="ok mono">04–05</span></div>
+        </div>
+      </div>
+      <article class="card">
+        <img class="media" src="assets/oled.png" alt="OLED" />
+        <div class="pad">
+          <h3>Сессия, не туннель</h3>
+          <p><code class="mono">BRIDGE_OPEN</code> по умолчанию READ_ONLY. Никогда UART-байт → один LoRa-пакет. DE после timeout — RX.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="hw">
+    <div class="kicker">Heltec V4</div>
+    <h2>Железо без путаницы</h2>
+    <p class="sub">Чужие GPIO-таблицы не копировать. GNSS-шелк — изолированный UART1.</p>
+    <div class="grid2">
+      <article class="card"><img class="media" src="assets/kit.png" alt="Комплект" style="height:360px" /></article>
+      <div class="card pad">
+        <h3>Сигналы</h3>
+        <ul>
+          <li>Wiegand — <b>15 / 16</b></li>
+          <li>OPEN / лампы — <b>40 / 41 / 33</b></li>
+          <li>ENTRY / EXIT / ESTOP — <b>3 / 4 / 6</b></li>
+          <li>OLED 17/18/21 · VEXT 36 LOW = on</li>
+          <li>RS-485 — <b>39 / 38 / 26</b></li>
+          <li>USB — <b>19 / 20</b></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="safety">
+    <div class="grid2">
+      <article class="card"><img class="media" src="assets/safety.png" alt="Панель" style="height:380px" /></article>
+      <div>
+        <div class="kicker">не замена панели</div>
+        <h2>Пожарка живёт без нас</h2>
+        <p class="sub">Потеря радио не глушит прибор. Нет кнопки «снять пожар».</p>
+        <div class="layers">
+          <div class="layer"><span>MONITOR</span><span class="ok">по умолчанию</span></div>
+          <div class="layer"><span>BRIDGE</span><span>READ_ONLY / lab RAW</span></div>
+          <div class="layer"><span>CONTROLLER</span><span>только capability</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="map">
+    <div class="kicker">19 прогонов</div>
+    <h2>Дорожная карта</h2>
+    <p class="sub">01–07 закрыты кодом. Дальше — адаптеры, не парсер Orion в этом прогоне.</p>
+    <div class="roadmap">
+      <div class="phase done"><small>01–03</small><b>Пинout · Companion · OLED</b></div>
+      <div class="phase done"><small>04–05</small><b>Wiegand · RS-485</b></div>
+      <div class="phase done"><small>06–07</small><b>JSON · мост</b></div>
+      <div class="phase next"><small>08</small><b>DeviceAdapter</b></div>
+      <div class="phase"><small>09–10</small>Orion · Bolid RO</div>
+      <div class="phase"><small>11–13</small>События · Flutter</div>
+      <div class="phase"><small>14–16</small>CONTROL · Signal</div>
+      <div class="phase"><small>17–19</small>ACL · hardening</div>
+    </div>
+  </section>
+
+  <footer>
+    <div>MESH 485 Extender · не сертифицированный пожарный прибор</div>
+    <div class="mono">docs/site</div>
+  </footer>
+
+  <script>
+    const img = document.getElementById("heroImg");
+    window.addEventListener("scroll", () => {
+      if (!img) return;
+      img.style.transform = "translateY(" + (window.scrollY * 0.18) + "px) scale(1.08)";
+    }, { passive: true });
+
+    document.querySelectorAll(".btn, .pill").forEach((el) => {
+      el.addEventListener("mousemove", (e) => {
+        const r = el.getBoundingClientRect();
+        const x = (e.clientX - r.left - r.width / 2) / 8;
+        const y = (e.clientY - r.top - r.height / 2) / 8;
+        el.style.transform = "translate(" + x + "px," + y + "px) scale(1.04)";
+      });
+      el.addEventListener("mouseleave", () => { el.style.transform = ""; });
+    });
+  </script>
+</body>
+</html>

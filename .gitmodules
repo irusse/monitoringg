@@ -1,0 +1,39 @@
+[submodule "vendor/HAPRS"]
+	path = vendor/HAPRS
+	url = https://github.com/rahul-chatterjee-27/HAPRS.git
+[submodule "vendor/MeshCore"]
+	path = vendor/MeshCore
+	url = https://github.com/meshcore-dev/MeshCore.git
+[submodule "vendor/WiegandNG"]
+	path = vendor/WiegandNG
+	url = https://github.com/pvtex/Wiegand-NG-Multi-Bit-Wiegand-Library-for-Arduino.git
+[submodule "vendor/eeh-esp32-rfid"]
+	path = vendor/eeh-esp32-rfid
+	url = https://github.com/smford/eeh-esp32-rfid.git
+[submodule "vendor/esp-rfid"]
+	path = vendor/esp-rfid
+	url = https://github.com/esprfid/esp-rfid.git
+[submodule "vendor/esp32-rfid-access-control"]
+	path = vendor/esp32-rfid-access-control
+	url = https://github.com/darthshadoww/esp32-rfid-access-control.git
+[submodule "vendor/esp32-rfid"]
+	path = vendor/esp32-rfid
+	url = https://github.com/pvtex/esp32-rfid.git
+[submodule "vendor/hass-hubc2000pp"]
+	path = vendor/hass-hubc2000pp
+	url = https://github.com/Regressor/hass-hubc2000pp.git
+[submodule "vendor/meshcore-cli"]
+	path = vendor/meshcore-cli
+	url = https://github.com/fdlamotte/meshcore-cli.git
+[submodule "vendor/meshcore-client"]
+	path = vendor/meshcore-client
+	url = https://github.com/OffbandMesh/meshcore-client.git
+[submodule "vendor/meshcore-open"]
+	path = vendor/meshcore-open
+	url = https://github.com/zjs81/meshcore-open.git
+[submodule "vendor/meshcore.js"]
+	path = vendor/meshcore.js
+	url = https://github.com/meshcore-dev/meshcore.js.git
+[submodule "vendor/pidoors"]
+	path = vendor/pidoors
+	url = https://github.com/sybethiesant/pidoors.git

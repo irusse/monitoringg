@@ -1,0 +1,15 @@
+{
+  "v": 1,
+  "type": "m485.request",
+  "id": "B7E401",
+  "node": "EXT-001",
+  "op": "RS485_TRANSACTION",
+  "operator": "admin",
+  "ts": 1787912345,
+  "nonce": "c1f0",
+  "payload": {
+    "protocol": "RAW_RS485",
+    "timeout_ms": 900,
+    "frame": "AQMA"
+  }
+}

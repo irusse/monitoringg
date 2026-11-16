@@ -1,0 +1,13 @@
+{
+  "v": 1,
+  "type": "m485.request",
+  "id": "CFG010",
+  "node": "EXT-001",
+  "op": "CONFIG_SET",
+  "operator": "admin",
+  "ts": 1787912345,
+  "nonce": "c1f0",
+  "payload": {
+    "protocol": "BOLID_SIGNAL20"
+  }
+}

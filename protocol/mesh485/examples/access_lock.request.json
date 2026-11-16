@@ -1,0 +1,13 @@
+{
+  "v": 1,
+  "type": "m485.request",
+  "id": "A18005",
+  "node": "EXT-001",
+  "op": "ACCESS_LOCK",
+  "operator": "operator",
+  "ts": 1787912345,
+  "nonce": "c1f0",
+  "payload": {
+    "device_id": "TS-001"
+  }
+}

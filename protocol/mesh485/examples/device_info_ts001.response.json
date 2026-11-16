@@ -1,0 +1,19 @@
+{
+  "v": 1,
+  "type": "m485.response",
+  "id": "A17011",
+  "node": "EXT-001",
+  "op": "DEVICE_INFO",
+  "result": "OK",
+  "error": null,
+  "ts": 1787912347,
+  "payload": {
+    "id": "TS-001",
+    "vendor": "access",
+    "model": "TURNSTILE",
+    "protocol": "ACCESS",
+    "address": 0,
+    "online": true,
+    "capabilities": ["READ_STATUS", "ACCESS_OPEN"]
+  }
+}

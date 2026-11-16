@@ -1,0 +1,16 @@
+{
+  "v": 1,
+  "type": "m485.response",
+  "id": "BR0A01",
+  "node": "EXT-001",
+  "op": "BRIDGE_OPEN",
+  "result": "OK",
+  "error": null,
+  "ts": 1787912347,
+  "payload": {
+    "session": true,
+    "level": "READ_ONLY",
+    "port": "RS485",
+    "idle_s": 30
+  }
+}

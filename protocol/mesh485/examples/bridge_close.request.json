@@ -1,0 +1,11 @@
+{
+  "v": 1,
+  "type": "m485.request",
+  "id": "BR0C01",
+  "node": "EXT-001",
+  "op": "BRIDGE_CLOSE",
+  "operator": "admin",
+  "ts": 1787912345,
+  "nonce": "c1f0",
+  "payload": {}
+}

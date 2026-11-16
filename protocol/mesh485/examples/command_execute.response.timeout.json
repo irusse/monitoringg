@@ -1,0 +1,18 @@
+{
+  "v": 1,
+  "type": "m485.response",
+  "id": "CX0008",
+  "node": "EXT-001",
+  "op": "COMMAND_EXECUTE",
+  "result": "ERR",
+  "error": "TIMEOUT",
+  "ts": 1787912345,
+  "payload": {
+    "device_id": "PP-001",
+    "capability": "CONTROL_RELAY",
+    "point_id": "R1",
+    "mesh_ok": true,
+    "device_ok": false,
+    "error": "TIMEOUT"
+  }
+}

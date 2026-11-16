@@ -1,0 +1,62 @@
+{
+  "v": 1,
+  "type": "m485.response",
+  "id": "DV0003",
+  "node": "EXT-001",
+  "op": "POINT_LIST",
+  "result": "OK",
+  "error": null,
+  "ts": 1787912347,
+  "payload": {
+    "points": [
+      {
+        "device_id": "RAW-001",
+        "point_id": "BUS",
+        "type": "loop",
+        "name": "RS-485",
+        "state": "UNKNOWN",
+        "attributes": {}
+      },
+      {
+        "device_id": "TS-001",
+        "point_id": "TURNSTILE",
+        "type": "turnstile",
+        "name": "Turnstile",
+        "state": "LOCKED",
+        "attributes": {}
+      },
+      {
+        "device_id": "TS-001",
+        "point_id": "READER",
+        "type": "card_reader",
+        "name": "Reader",
+        "state": "UNKNOWN",
+        "attributes": {}
+      },
+      {
+        "device_id": "PP-001",
+        "point_id": "PP",
+        "type": "loop",
+        "name": "C2000-PP",
+        "state": "FAULT",
+        "attributes": {}
+      },
+      {
+        "device_id": "S10-001",
+        "point_id": "S10",
+        "type": "loop",
+        "name": "Signal-10",
+        "state": "FAULT",
+        "attributes": {}
+      },
+      {
+        "device_id": "S20-001",
+        "point_id": "S20",
+        "type": "loop",
+        "name": "Signal-20",
+        "state": "FAULT",
+        "attributes": {}
+      }
+    ]
+  }
+}

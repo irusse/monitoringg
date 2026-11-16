@@ -1,0 +1,19 @@
+{
+  "v": 1,
+  "type": "m485.response",
+  "id": "DV0002",
+  "node": "EXT-001",
+  "op": "DEVICE_INFO",
+  "result": "OK",
+  "error": null,
+  "ts": 1787912347,
+  "payload": {
+    "id": "RAW-001",
+    "vendor": "generic",
+    "model": "RS485",
+    "protocol": "RAW_RS485",
+    "address": 0,
+    "online": true,
+    "capabilities": ["READ_STATUS"]
+  }
+}

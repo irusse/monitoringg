@@ -1,0 +1,25 @@
+{
+  "v": 1,
+  "type": "m485.response",
+  "id": "A18004",
+  "node": "EXT-001",
+  "op": "ACCESS_GET_USERS",
+  "result": "OK",
+  "error": null,
+  "ts": 1787912347,
+  "payload": {
+    "mesh_ok": true,
+    "device_ok": true,
+    "error": null,
+    "total": 1,
+    "offset": 0,
+    "users": [
+      {
+        "uid": "CAFEBABE",
+        "enabled": true,
+        "employee_id": "E18",
+        "name": "Ivan"
+      }
+    ]
+  }
+}

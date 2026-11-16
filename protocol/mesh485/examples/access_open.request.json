@@ -1,0 +1,14 @@
+{
+  "v": 1,
+  "type": "m485.request",
+  "id": "A17002",
+  "node": "EXT-001",
+  "op": "ACCESS_OPEN",
+  "operator": "operator",
+  "ts": 1787912345,
+  "nonce": "c1f0",
+  "payload": {
+    "device_id": "TS-001",
+    "pulse_ms": 300
+  }
+}
